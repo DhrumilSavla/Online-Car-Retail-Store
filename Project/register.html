@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Form Contact Us</title>
+	<link rel="stylesheet" href="contact.css">
+	<link rel="stylesheet" href="home.css">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<link rel="stylesheet" href="contact.css">
+
+<body>
+	<header>
+
+		<nav>
+			<img src="img/car-logo.png" class="logo" alt="car_img">
+	<div class="menu">
+		<a href="home.html">Home</a>
+		<a href="product.html">Showroom</a>
+		<a href="Review.html">Review Us</a>
+		<a href="loginpage.html">Login</a>
+	
+	
+	</div>
+			<div class="social">
+				<a href="#"><i class="fa-brands fa-facebook-f"></i></a>
+				<a href="#"><i class="fa-brands fa-twitter"></i></a>
+				<a href="#"><i class="fa-brands fa-instagram"></i></a>
+			</div>
+		</nav>
+	</header>
+	<div class="container" style="background: url('img/wallpaperflare.com_wallpaper.jpg') no-repeat center center/cover;">
+		<form action="register.php" onsubmit="return (formvalidator())" method="post" >
+			<h1>Registration Form</h1>
+			<input type="text" id="firstName" placeholder="First Name"  name="firstName">
+			<input type="text" id="lastName" placeholder="Last Name" name="lastName">
+			<input type="text" id="email" placeholder="Email" name="email">
+			<input type="text" id="mobile" placeholder="Mobile" name="mobile">
+			<input type="password" id="pass" placeholder="New Password" name="pass">
+			<input type="password" id="newpass" placeholder="Confirm Password" name="newpass">
+			<button type="submit" value="Send" id="button">Send</button>
+		</form>
+	</div>
+	</body>
+	<script>
+		function formvalidator() {
+			const firstName = document.getElementById("firstName").value;
+			const lastName = document.getElementById("lastName").value;
+			const email = document.getElementById("email").value;
+			const mobile = document.getElementById("mobile").value;
+			const password = document.getElementById("pass").value;
+			const confirmPassword = document.getElementById("newpass").value;
+			var regex1 = /^[a-zA-Z]+$/;
+			var email_regex = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/; 
+			var phone_regex = /^[0-9]{10}$/;
+			var password_regex = /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[a-zA-Z]).{8,}$/
+
+			if(!regex1.test(firstName) || firstName.length<=2){
+				alert("Enter valid first name");
+				return false;
+			}
+
+			if (!regex1.test(lastName) || lastName.length < 2) {
+				alert("Enter valid last name");
+				return false;
+			}
+			if(!email_regex.test(email)){
+				alert("Invalid Email ID");
+				return false;
+			}
+			if(!phone_regex.test(mobile)){
+				alert("Enter valid phone number");
+				return false;
+			}
+			if(!password_regex.test(password)){
+				alert("Enter a password which is AlphaNumeric and contains special symbols");
+				return false;
+			}	
+			if(password!= confirmPassword){
+				alert("Wrong password entered");
+				return false;
+			}
+		}
+
+	</script>
+
+</html>

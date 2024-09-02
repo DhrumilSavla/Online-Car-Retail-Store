@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Login Form</title>
+ 
+  <link rel="stylesheet" href="home.css">
+  <link rel="stylesheet" href="login.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+
+<body>
+  <header>
+  
+    <nav>
+      <img src="img/car-logo.png" class="logo" alt="car_img">
+    <div class="menu">
+      <a href="home.html">Home</a>
+      <a href="product.html">Showroom</a>
+      <a href="Review.html">Review Us</a>
+      <a href="loginpage.html">Login</a>
+    
+    
+    </div>
+      <div class="social">
+        <a href="#"><i class="fa-brands fa-facebook-f"></i></a>
+        <a href="#"><i class="fa-brands fa-twitter"></i></a>
+        <a href="#"><i class="fa-brands fa-instagram"></i></a>
+      </div>
+    </nav>
+  </header>
+  <div class="wrapper">
+    <form action="login.php" onsubmit="return formvalidator()" method="post">
+      <h1>Login Here</h1>
+      <div class="input-box">
+        <input type="text" placeholder="Username" id="user" name="Username">
+        
+      </div>
+      <div class="input-box">
+        <input type="password" placeholder="Password" id="pass" name="Password">
+        
+      </div>
+      <div class="remember-forgot">
+        <label><input type="checkbox">Remember Me</label>
+        <a href="#">Forgot Password</a>
+      </div>
+      <button type="submit" class="btn">Login</button>
+      <div class="register-link">
+        <p>Dont have an account? <a href="register.html">Register</a></p>
+      </div>
+    </form>
+  </div>
+</body>
+<script type="text/javascript">
+  function formvalidator() {
+    const username = document.getElementById("user").value;
+    const password = document.getElementById("pass").value;
+    var regex = /^[A-Za-z][A-Za-z0-9_]{7,29}$/;
+    var password_regex = /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[a-zA-Z]).{8,}$/;
+    
+    if (!regex.test(username)) {
+      alert("Enter correct username");
+      return false;
+
+    }
+    if (!password_regex.test(password)) {
+      alert("Enter correct password");
+      return false;
+    }
+  }
+  </script>
+</html>
